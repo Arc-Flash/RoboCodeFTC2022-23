@@ -3,8 +3,13 @@ package org.firstinspires.ftc.teamcode;
 import com.arcrobotics.ftclib.drivebase.MecanumDrive;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.arcrobotics.ftclib.hardware.motors.Motor;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+
+@TeleOp(name="Robot Centric Mecannum")
+@Disabled
 public class mecanum extends OpMode {
     private Motor leftFront, rightFront, leftBack, rightBack;
     private MecanumDrive drive;
