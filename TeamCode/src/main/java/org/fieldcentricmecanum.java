@@ -17,7 +17,7 @@ public class FieldRelativeDrivetrain extends LinearOpMode {
     private DcMotor rightBack;
     private BNO055IMU imu;
 
-    double speedModifier = 0.8; //@TODO If your drivers complain that the robot is too fast fix this :)
+    double speedModifier = 0.8; //@TODO Change if to fast :)
     double robotAngle = 0; //For Field Relative
     double angleZeroValue = -3.1415 / 2.0;  // -pi/2 (change this to the orientation your robot is in at end of auton)
 
@@ -63,7 +63,7 @@ public class FieldRelativeDrivetrain extends LinearOpMode {
 
 
         speedModifier = .8 + (.8 * gamepad1.right_trigger) - (.4 * gamepad1.left_trigger);
-        //Our drivers are video game players so this is why we added this ^
+        //Ooh special power up ^
 
         //setting powers correctly
         leftFront.setPower(leftFrontPower * speedModifier);
