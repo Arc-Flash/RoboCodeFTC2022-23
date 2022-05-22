@@ -17,21 +17,20 @@ public class FieldRelativeDrivetrain extends LinearOpMode {
     private DcMotor rightBack;
     private BNO055IMU imu;
 
-    double speedModifier = 0.4; //How fast motors go
-    double robotAngle = 0; //For Field Relative Part
-    double angleZeroValue = -3.1415 / 2.0;  // change this as needed, experiment to get start angle right
-    
+    double speedModifier = 0.8; //@TODO If your drivers complain that the robot is too fast fix this :)
+    double robotAngle = 0; //For Field Relative
+    double angleZeroValue = -3.1415 / 2.0;  // -pi/2 (change this to the orientation your robot is in at end of auton)
 
     @Override
     public void runOpMode(){
-        //@TODO Check hardware mappings and name motors this
+        //@TODO Check hardware mappings
         leftFront = hardwareMap.get(DcMotor.class,"leftFront");
         leftBack = hardwareMap.get(DcMotor.class,"leftBack");
         rightFront = hardwareMap.get(DcMotor.class,"rightFront");
         rightBack = hardwareMap.get(DcMotor.class,"rightBack");
         imu = hardwareMap.get(BNO055IMU.class, "imu");
 
-        //since this is mecanum code... 
+        //since this is mecanum
         rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -45,7 +44,7 @@ public class FieldRelativeDrivetrain extends LinearOpMode {
     }
 
     public void drivetrain() {
-        //pressing x will recalibrate field relative(Press this)
+        //x will calibrate field relative
         if (gamepad1.x) {
             angleZeroValue = this.getRawExternalHeading();
 
@@ -64,7 +63,7 @@ public class FieldRelativeDrivetrain extends LinearOpMode {
 
 
         speedModifier = .8 + (.8 * gamepad1.right_trigger) - (.4 * gamepad1.left_trigger);
-        //Added this to give robot a speed boost
+        //Our drivers are video game players so this is why we added this ^
 
         //setting powers correctly
         leftFront.setPower(leftFrontPower * speedModifier);
