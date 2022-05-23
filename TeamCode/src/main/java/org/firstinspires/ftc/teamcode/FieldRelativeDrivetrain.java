@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.drive.teleop;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.hardware.bosch.BNO055IMU;
@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 
 
-@TeleOp(name = "Field Relative")
+@TeleOp(name = "Field Relative Mecanum")
 public class FieldRelativeDrivetrain extends LinearOpMode {
 
     private DcMotor leftFront;
@@ -19,7 +19,7 @@ public class FieldRelativeDrivetrain extends LinearOpMode {
 
     double speedModifier = 0.8; //@TODO Change if to fast :)
     double robotAngle = 0; //For Field Relative
-    double angleZeroValue = -3.1415 / 2.0;  // -pi/2 (change this to the orientation your robot is in at end of auton)
+    double angleZeroValue = -3.1415 / 2.0;  // -pi/2 (change this to the orientation your robot is in at end of auto)
 
     @Override
     public void runOpMode(){
@@ -63,7 +63,7 @@ public class FieldRelativeDrivetrain extends LinearOpMode {
 
 
         speedModifier = .8 + (.8 * gamepad1.right_trigger) - (.4 * gamepad1.left_trigger);
-        //Ooh special power up ^
+        //Ooh special power up
 
         //setting powers correctly
         leftFront.setPower(leftFrontPower * speedModifier);
