@@ -1,11 +1,10 @@
-package org.firstinspires.ftc.teamcode.FieldRelativeExample;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import org.firstinspires.ftc.teamcode.FieldRelativeExample.StaticField;
 
 
 @TeleOp(name = "Field Relative")
