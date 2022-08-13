@@ -10,10 +10,10 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 @TeleOp(name = "Field Relative")
 public class FieldRelativeTeleop extends LinearOpMode {
 
-    private DcMotor leftFront;
-    private DcMotor leftBack;
-    private DcMotor rightFront;
-    private DcMotor rightBack;
+    private DcMotor frontLeft;
+    private DcMotor backLeft;
+    private DcMotor frontRight;
+    private DcMotor backRight;
     private BNO055IMU imu;
 
     double speedModifier = 0.8; //@TODO If your drivers complain that the robot is too fast fix this :)
@@ -24,15 +24,15 @@ public class FieldRelativeTeleop extends LinearOpMode {
     @Override
     public void runOpMode(){
         //@TODO Check hardware mappings
-        leftFront = hardwareMap.get(DcMotor.class,"leftFront");
-        leftBack = hardwareMap.get(DcMotor.class,"leftBack");
-        rightFront = hardwareMap.get(DcMotor.class,"rightFront");
-        rightBack = hardwareMap.get(DcMotor.class,"rightBack");
+        frontLeft = hardwareMap.get(DcMotor.class,"leftFront");
+        backLeft = hardwareMap.get(DcMotor.class,"leftBack");
+        frontRight = hardwareMap.get(DcMotor.class,"rightFront");
+        backRight = hardwareMap.get(DcMotor.class,"rightBack");
         imu = hardwareMap.get(BNO055IMU.class, "imu");
         initIMU();
         //since this is mecanum
-        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        backRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
 
@@ -75,10 +75,10 @@ public class FieldRelativeTeleop extends LinearOpMode {
         //Our drivers are video game players so this is why we added this ^
 
         //setting powers correctly
-        leftFront.setPower(leftFrontPower * speedModifier);
-        rightFront.setPower(rightFrontPower * speedModifier);
-        leftBack.setPower(leftBackPower * speedModifier);
-        rightBack.setPower(rightBackPower * speedModifier);
+        frontLeft.setPower(leftFrontPower * speedModifier);
+        frontRight.setPower(rightFrontPower * speedModifier);
+        backLeft.setPower(leftBackPower * speedModifier);
+        backRight.setPower(rightBackPower * speedModifier);
 
     }
     public double getRawExternalHeading() {
