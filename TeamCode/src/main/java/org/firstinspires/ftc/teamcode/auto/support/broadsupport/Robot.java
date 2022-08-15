@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.teamcode.CameraPipelines.ImagePipeline;
-import org.firstinspires.ftc.teamcode.CameraPipelines.TSEDetectionPipeline;
+//import org.firstinspires.ftc.teamcode.CameraPipelines.ImagePipeline;
+//import org.firstinspires.ftc.teamcode.CameraPipelines.TSEDetectionPipeline;
 import org.firstinspires.ftc.teamcode.auto.support.enumerations.Drivetrain;
 import org.firstinspires.ftc.teamcode.auto.support.enumerations.DrivetrainSymmetry;
 import org.openftc.easyopencv.OpenCvCamera;
@@ -22,14 +22,14 @@ abstract public class Robot extends BotContainer{
     /**
      * pipeline here is of type TSEDetectionPipeline, replace this with whatever pipeline you've made!
      */
-    private final ImagePipeline pipeline = new ImagePipeline();
+    //private final ImagePipeline pipeline = new ImagePipeline();
 
     /**
      * Define whether the drivetrain is symmetrical or not - if both sides of the robot are powered
      * positively and the robot moves forward then the robot is symmetrical, if it turns then it is
      * asymmetrical.
      */
-    private final DrivetrainSymmetry symmetryState = DrivetrainSymmetry.SYMMETRICAL;
+    private final DrivetrainSymmetry symmetryState = DrivetrainSymmetry.ASYMMETRICAL;
 
     /**
      * wheelR is the radius of the wheel and should be replaced with your robots driven wheel radius
@@ -39,7 +39,7 @@ abstract public class Robot extends BotContainer{
     /**
      * trackWidth is the distance between the wheels of the robot (viewing down the center of the robot), replace with your track width
      */
-    private final double trackWidth = 0.295;
+    private final double trackWidth = 0.37987597;
 
 
 
@@ -75,7 +75,7 @@ abstract public class Robot extends BotContainer{
         do{
             // In initialization - add your code here
 
-            telemetry.addData("The initialization has started successfully.","");
+            telemetry.addData("Davi is smart and the initialization has started successfully.","");
             telemetry.update();
         }
         while (!opModeIsActive());
@@ -128,32 +128,32 @@ abstract public class Robot extends BotContainer{
      * Initialize the camera and set its properties.
      * Postcondition: camera has been properly assigned
      */
-    private void initCamera(){
+    //private void initCamera(){
         // Build the camera objects - most likely you won't need to change this, but if you've renamed your webcam then you will!
 //        WebcamName name = hardwareMap.get(WebcamName.class, "Webcam 1");
-        webcameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
-        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        //webcameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
+        //int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
 
 
         // Create a new camera object in openCV
-        camera = OpenCvCameraFactory.getInstance().createWebcam(webcameraName, cameraMonitorViewId);
+        //camera = OpenCvCameraFactory.getInstance().createWebcam(webcameraName, cameraMonitorViewId);
 
 
-        camera.setPipeline(pipeline);
+        //camera.setPipeline(pipeline);
 
         // Start the camera stream or throws an error
-        camera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
-            @Override
-            public void onOpened() {
-                telemetry.update();
-                camera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
-            }
-            @Override
-            public void onError(int errorCode) {
-                throw new RuntimeException("Error in camera initialization! Error code "+errorCode);
-            }
-        });
-    }
+        //camera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
+            //@Override
+            //public void onOpened() {
+                //telemetry.update();
+                //camera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
+            //}
+            //@Override
+            //public void onError(int errorCode) {
+                //throw new RuntimeException("Error in camera initialization! Error code "+errorCode);
+            //}
+        //});
+    //}
 
     /**
      * Initialize all and build the path sequence if not null, relay a successful initialization
@@ -167,7 +167,7 @@ abstract public class Robot extends BotContainer{
 
         // Initialize motors and camera
         initMotors();
-        initCamera();
+        //initCamera();
 
     }
 }
