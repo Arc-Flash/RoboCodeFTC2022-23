@@ -61,12 +61,12 @@ public class DriveModule {
         this.robot = robot;
         this.moduleSide = moduleSide;
         if (moduleSide == ModuleSide.RIGHT) {
-            motor1 = robot.hardwareMap.dcMotor.get("rightTopMotor");
-            motor2 = robot.hardwareMap.dcMotor.get("rightBottomMotor");
+            motor1 = robot.hardwareMap.dcMotor.get("backRight");
+            motor2 = robot.hardwareMap.dcMotor.get("frontRight");
             positionVector = new Vector2d((double)18/2, 0); //points from robot center to right module
         } else {
-            motor1 = robot.hardwareMap.dcMotor.get("leftTopMotor");
-            motor2 = robot.hardwareMap.dcMotor.get("leftBottomMotor");
+            motor1 = robot.hardwareMap.dcMotor.get("frontLeft");
+            motor2 = robot.hardwareMap.dcMotor.get("backLeft");
             positionVector = new Vector2d((double)-18/2, 0); //points from robot center to left module
         }
 
