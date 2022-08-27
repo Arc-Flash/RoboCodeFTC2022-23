@@ -128,32 +128,32 @@ abstract public class Robot extends BotContainer{
      * Initialize the camera and set its properties.
      * Postcondition: camera has been properly assigned
      */
-    //private void initCamera(){
+    private void initCamera(){
         // Build the camera objects - most likely you won't need to change this, but if you've renamed your webcam then you will!
-//        WebcamName name = hardwareMap.get(WebcamName.class, "Webcam 1");
-        //webcameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
-        //int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        WebcamName name = hardwareMap.get(WebcamName.class, "Webcam 1");
+        webcameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
+        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
 
 
         // Create a new camera object in openCV
-        //camera = OpenCvCameraFactory.getInstance().createWebcam(webcameraName, cameraMonitorViewId);
+        camera = OpenCvCameraFactory.getInstance().createWebcam(webcameraName, cameraMonitorViewId);
 
 
         //camera.setPipeline(pipeline);
 
         // Start the camera stream or throws an error
-        //camera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
-            //@Override
-            //public void onOpened() {
-                //telemetry.update();
-                //camera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
-            //}
-            //@Override
-            //public void onError(int errorCode) {
-                //throw new RuntimeException("Error in camera initialization! Error code "+errorCode);
-            //}
-        //});
-    //}
+        camera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
+            @Override
+            public void onOpened() {
+                telemetry.update();
+                camera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
+            }
+            @Override
+            public void onError(int errorCode) {
+                throw new RuntimeException("Error in camera initialization! Error code "+errorCode);
+            }
+        });
+    }
 
     /**
      * Initialize all and build the path sequence if not null, relay a successful initialization

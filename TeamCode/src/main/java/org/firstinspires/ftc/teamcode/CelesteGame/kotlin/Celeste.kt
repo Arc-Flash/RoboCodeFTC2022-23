@@ -184,10 +184,10 @@ class Celeste(p8: Pico8) : Cart(p8) {
         fun check(obj: Class<*>?, ox: Int, oy: Int): base_obj? {
             for(other in g.objects) {
                 if ((other::class.java == obj) && other != this && other.collideable &&
-                        other.x + other.hitbox.x + other.hitbox.w > x + hitbox.x + ox &&
-                        other.y + other.hitbox.y + other.hitbox.h > y + hitbox.y + oy &&
-                        other.x + other.hitbox.x < x + hitbox.x + hitbox.w + ox &&
-                        other.y + other.hitbox.y < y + hitbox.y + hitbox.h + oy) {
+                    other.x + other.hitbox.x + other.hitbox.w > x + hitbox.x + ox &&
+                    other.y + other.hitbox.y + other.hitbox.h > y + hitbox.y + oy &&
+                    other.x + other.hitbox.x < x + hitbox.x + hitbox.w + ox &&
+                    other.y + other.hitbox.y < y + hitbox.y + hitbox.h + oy) {
                     return other
                 }
             }
@@ -324,11 +324,11 @@ class Celeste(p8: Pico8) : Cart(p8) {
             if(g.spikes_at(
                     (x + hitbox.x).toInt(),
                     (y + hitbox.y).toInt(),
-                hitbox.w,
-                hitbox.h,
+                    hitbox.w,
+                    hitbox.h,
                     spd.x.toInt(),
                     spd.y.toInt()
-            )) {
+                )) {
                 g.kill_player(this)
             }
 
@@ -388,9 +388,9 @@ class Celeste(p8: Pico8) : Cart(p8) {
 
                 //terminal vel +wall sliding
                 var maxfall = if (!(
-                    h_input != 0 && is_solid(h_input, 0) and !is_ice (h_input,
-                    0
-                ))) 2 else 0.4
+                            h_input != 0 && is_solid(h_input, 0) and !is_ice (h_input,
+                                0
+                            ))) 2 else 0.4
 
                 // apply gravity
                 if (!on_ground) {
@@ -772,9 +772,9 @@ class Celeste(p8: Pico8) : Cart(p8) {
             for(j in (max(0, (y / 8)) until (min(15, (y + h - 1) / 8)) + 1)){
                 val tile = tile_at(i, j)
                 if ((tile == 17 && ((y + h - 1) % 8 >= 6 || y + h == j * 8 + 8) && spdy >= 0) ||
-                        (tile == 27 && y % 8 <= 2 && spdy <= 0) ||
-                        (tile == 43 && x % 8 <= 2 && spdx <= 0) ||
-                        (tile == 59 && ((x + w - 1) % 8 >= 6 || x + w == i * 8 + 8) && spdx >= 0)) {
+                    (tile == 27 && y % 8 <= 2 && spdy <= 0) ||
+                    (tile == 43 && x % 8 <= 2 && spdx <= 0) ||
+                    (tile == 59 && ((x + w - 1) % 8 >= 6 || x + w == i * 8 + 8) && spdx >= 0)) {
                     return true
                 }
             }

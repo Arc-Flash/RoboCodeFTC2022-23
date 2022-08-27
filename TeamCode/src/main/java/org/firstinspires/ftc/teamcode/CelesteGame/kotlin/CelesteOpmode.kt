@@ -1,9 +1,3 @@
-import Pico8.load_game
-import Pico8.set_btn_state
-import Celeste.load_room
-import Pico8.set_inputs
-import Pico8.step
-import Celeste.getString
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import kotlin.Throws
