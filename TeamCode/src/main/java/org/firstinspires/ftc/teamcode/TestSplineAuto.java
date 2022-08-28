@@ -9,11 +9,13 @@ import org.firstinspires.ftc.teamcode.auto.support.broadsupport.Path;
 import org.firstinspires.ftc.teamcode.auto.support.broadsupport.Robot;
 import org.firstinspires.ftc.teamcode.auto.support.broadsupport.SplinePath;
 import org.firstinspires.ftc.teamcode.auto.support.broadsupport.Turn;
+import com.outoftheboxrobotics.photoncore.PhotonCore;
 
 @Autonomous(name="TestSplineAuto")
 public class TestSplineAuto extends Robot {
     @Override
     public void runOpMode() throws InterruptedException {
+        PhotonCore.enable();
         initializeHardware();
 
         Path line = new Line(0.5, 0.75);

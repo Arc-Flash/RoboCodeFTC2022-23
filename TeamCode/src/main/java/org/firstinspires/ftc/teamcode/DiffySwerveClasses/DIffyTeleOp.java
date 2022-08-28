@@ -1,6 +1,7 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.DiffySwerveClasses;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.outoftheboxrobotics.photoncore.PhotonCore;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "Diff Swerve TeleOp", group = "TeleOp")
 public class DIffyTeleOp extends OpMode {
@@ -13,6 +14,7 @@ public class DIffyTeleOp extends OpMode {
     public boolean willResetIMU = true;
 
     public void init() {
+        PhotonCore.enable();
         robot = new Robot(this, false);
     }
 
