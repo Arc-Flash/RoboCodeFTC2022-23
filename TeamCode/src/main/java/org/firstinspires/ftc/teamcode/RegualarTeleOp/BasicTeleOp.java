@@ -1,10 +1,11 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.RegualarTeleOp;
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.outoftheboxrobotics.photoncore.PhotonCore;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-public class BasicAuto extends LinearOpMode {
+public class BasicTeleOp extends OpMode {
 
     private DcMotor frontLeft = null;
     private DcMotor frontRight = null;
@@ -12,7 +13,8 @@ public class BasicAuto extends LinearOpMode {
     private DcMotor backRight = null;
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void init() {
+        PhotonCore.enable();
 
         frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
         frontRight = hardwareMap.get(DcMotor.class, "frontRight");
@@ -21,23 +23,14 @@ public class BasicAuto extends LinearOpMode {
 
         frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
         backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+    }
 
-        waitForStart();
-        while (opModeIsActive())
-        {
-            frontRight.setPower(1);
-            frontLeft.setPower(1);
-            backRight.setPower(1);
-            backLeft.setPower(1);
-
-            Thread.sleep(4000);
-
-            frontRight.setPower(0);
-            frontLeft.setPower(0);
-            backRight.setPower(0);
-            backLeft.setPower(0);
-        }
-
-
+    @Override
+    public void loop()
+    {
+        backRight.setPower(-gamepad1.right_stick_y);
+        backLeft.setPower(-gamepad1.left_stick_y);
+        frontRight.setPower(-gamepad1.right_stick_y);
+        frontLeft.setPower(-gamepad1.left_stick_y);
     }
 }
