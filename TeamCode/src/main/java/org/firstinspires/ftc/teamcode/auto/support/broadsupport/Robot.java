@@ -167,7 +167,7 @@ abstract public class Robot extends BotContainer{
 
         // Initialize motors and camera
         initMotors();
-        //initCamera();
+        initCamera();
 
     }
 }
