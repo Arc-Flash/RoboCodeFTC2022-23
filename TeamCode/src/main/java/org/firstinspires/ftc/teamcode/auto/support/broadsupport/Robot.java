@@ -75,7 +75,7 @@ abstract public class Robot extends BotContainer{
         do{
             // In initialization - add your code here
 
-            telemetry.addData("Davi is smart and the initialization has started successfully.","");
+            telemetry.addData("Davi is smart and the initialization has started successfully, hopefully.","");
             telemetry.update();
         }
         while (!opModeIsActive());
