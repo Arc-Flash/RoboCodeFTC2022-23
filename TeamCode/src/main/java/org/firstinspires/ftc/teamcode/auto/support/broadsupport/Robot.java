@@ -3,14 +3,14 @@ package org.firstinspires.ftc.teamcode.auto.support.broadsupport;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+//import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 //import org.firstinspires.ftc.teamcode.CameraPipelines.ImagePipeline;
 //import org.firstinspires.ftc.teamcode.CameraPipelines.TSEDetectionPipeline;
 import org.firstinspires.ftc.teamcode.auto.support.enumerations.Drivetrain;
 import org.firstinspires.ftc.teamcode.auto.support.enumerations.DrivetrainSymmetry;
-import org.openftc.easyopencv.OpenCvCamera;
-import org.openftc.easyopencv.OpenCvCameraFactory;
-import org.openftc.easyopencv.OpenCvCameraRotation;
+//import org.openftc.easyopencv.OpenCvCamera;
+//import org.openftc.easyopencv.OpenCvCameraFactory;
+//import org.openftc.easyopencv.OpenCvCameraRotation;
 
 abstract public class Robot extends BotContainer{
     // These variables are protected so autonomous programs can use them easier - assign these to what you're using on your drivetrain
@@ -106,10 +106,10 @@ abstract public class Robot extends BotContainer{
      */
     private void initMotors(){
         // build the motor objects - add your code here
-        leftFront = (DcMotorEx) hardwareMap.dcMotor.get("FL");
-        leftBack = (DcMotorEx) hardwareMap.dcMotor.get("BL");
-        rightFront = (DcMotorEx) hardwareMap.dcMotor.get("FR");
-        rightBack = (DcMotorEx) hardwareMap.dcMotor.get("BR");
+        leftFront = (DcMotorEx) hardwareMap.dcMotor.get("frontLeft");
+        leftBack = (DcMotorEx) hardwareMap.dcMotor.get("backLeft");
+        rightFront = (DcMotorEx) hardwareMap.dcMotor.get("frontRight");
+        rightBack = (DcMotorEx) hardwareMap.dcMotor.get("backRight");
 
         // Set the usage of encoders
         leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -128,32 +128,32 @@ abstract public class Robot extends BotContainer{
      * Initialize the camera and set its properties.
      * Postcondition: camera has been properly assigned
      */
-    private void initCamera(){
+    //private void initCamera(){
         // Build the camera objects - most likely you won't need to change this, but if you've renamed your webcam then you will!
-        WebcamName name = hardwareMap.get(WebcamName.class, "Webcam 1");
-        webcameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
-        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        //WebcamName name = hardwareMap.get(WebcamName.class, "Webcam 1");
+        //webcameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
+        //int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
 
 
         // Create a new camera object in openCV
-        camera = OpenCvCameraFactory.getInstance().createWebcam(webcameraName, cameraMonitorViewId);
+        //camera = OpenCvCameraFactory.getInstance().createWebcam(webcameraName, cameraMonitorViewId);
 
 
         //camera.setPipeline(pipeline);
 
         // Start the camera stream or throws an error
-        camera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
-            @Override
-            public void onOpened() {
-                telemetry.update();
-                camera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
-            }
-            @Override
-            public void onError(int errorCode) {
-                throw new RuntimeException("Error in camera initialization! Error code "+errorCode);
-            }
-        });
-    }
+        //camera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
+            //@Override
+            //public void onOpened() {
+                //telemetry.update();
+                //camera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
+            //}
+            //@Override
+            //public void onError(int errorCode) {
+                //throw new RuntimeException("Error in camera initialization! Error code "+errorCode);
+  //          }
+  //      });
+  //  }
 
     /**
      * Initialize all and build the path sequence if not null, relay a successful initialization
@@ -167,7 +167,7 @@ abstract public class Robot extends BotContainer{
 
         // Initialize motors and camera
         initMotors();
-        initCamera();
+        //initCamera();
 
     }
 }
