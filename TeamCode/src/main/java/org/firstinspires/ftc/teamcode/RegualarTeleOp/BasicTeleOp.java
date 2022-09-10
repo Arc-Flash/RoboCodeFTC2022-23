@@ -2,9 +2,13 @@ package org.firstinspires.ftc.teamcode.RegualarTeleOp;
 
 import com.outoftheboxrobotics.photoncore.PhotonCore;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+import java.util.jar.Attributes;
+
+@TeleOp(name = "BasicTeleOp")
 public class BasicTeleOp extends OpMode {
 
     private DcMotor frontLeft = null;

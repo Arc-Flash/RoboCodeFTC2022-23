@@ -18,11 +18,11 @@ public class TestSplineAuto extends Robot {
         PhotonCore.enable();
         initializeHardware();
 
-        Path line = new Line(0.5, 0.75);
-        Path turn = new Turn(-45, 0.5);
+        Path line = new Line(0.5, 1);
+        Path turn = new Turn(-45, 0.75);
         double[] radii = {2, 1, 0.5};
         double[] arcLengths = {0.4,0.2,-0.1};
-        Path ConstantHeadingSpline = new SplinePath(0.5, 0.2, radii, arcLengths);
+        Path ConstantHeadingSpline = new SplinePath(0.81, 0.2, radii, arcLengths);
 
         addPath(line);
         addPath(turn);
