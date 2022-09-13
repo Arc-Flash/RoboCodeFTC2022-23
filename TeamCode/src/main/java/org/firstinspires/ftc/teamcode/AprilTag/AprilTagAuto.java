@@ -24,7 +24,7 @@ public class AprilTagAuto extends LinearOpMode
     // Lens intrinsics
     // UNITS ARE PIXELS
     // NOTE: this calibration is for the C920 webcam at 800x448.
-    // You will need to do your own calibration for other configurations!
+    // Need to Calibrate for the Logitech C270
     double fx = 578.272;
     double fy = 578.272;
     double cx = 402.145;
